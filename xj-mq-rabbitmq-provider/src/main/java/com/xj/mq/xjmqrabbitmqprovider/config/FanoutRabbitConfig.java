@@ -17,19 +17,19 @@ import org.springframework.context.annotation.Configuration;
 public class FanoutRabbitConfig {
     //队列 起名：TestDirectQueue
     @Bean
-    public Queue TestFanoutQueue() {
+    public Queue testFanoutQueue() {
         return new Queue("TestFanoutQueue",true);
     }
 
     //Direct交换机 起名：TestDirectExchange
     @Bean
-    FanoutExchange TestFanoutExchange() {
+    FanoutExchange testFanoutExchange() {
         return new FanoutExchange("TestFanoutExchange");
     }
 
     //绑定  将队列和交换机绑定, 并设置用于匹配键：TestDirectRouting
     @Bean
     Binding bindingFanout() {
-        return BindingBuilder.bind(TestFanoutQueue()).to(TestFanoutExchange());
+        return BindingBuilder.bind(testFanoutQueue()).to(testFanoutExchange());
     }
 }
